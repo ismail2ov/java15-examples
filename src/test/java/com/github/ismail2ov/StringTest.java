@@ -42,4 +42,17 @@ class StringTest {
 
         assertThat(actual).isEqualTo(expected);
     }
+
+    @Test
+    void testStringTranslateEscapes() {
+        String s = "foo\\nbar \\t buzz\\\\";
+
+        String expected = """
+            foo
+            bar \t buzz\\""";
+
+        String actual = s.translateEscapes();
+
+        assertThat(actual).isEqualTo(expected);
+    }
 }
